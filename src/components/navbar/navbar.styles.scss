@@ -1,0 +1,32 @@
+.navigation {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-right: 20px;
+  font-size: 18px;
+
+  .logo-container {
+    height: 100%;
+    width: 70px;
+    padding: 13px 25px 25px 25px;
+    img {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .navlink-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .navlink {
+      padding: 30px 20px 15px 10px;
+      cursor: pointer;
+    }
+  }
+}
