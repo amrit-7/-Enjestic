@@ -23,6 +23,7 @@
     position: absolute;
     top: 255px;
     display: none;
+    font-size: 18px;
   }
 
   &:hover {
@@ -31,7 +32,7 @@
     }
 
     button {
-      opacity: 0.85;
+      opacity: 1;
       display: flex;
     }
   }
