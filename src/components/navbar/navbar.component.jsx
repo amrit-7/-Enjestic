@@ -4,15 +4,15 @@ import CartIcon from "../cart-icon/cart-icon";
 import CartDropdown from "../cart-dropdown/cart-dropdown";
 import pic from "../../assets/enjestic.png";
 import { useContext } from "react";
-import { userContext } from "../../context/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { cartContext } from "../../context/cart.context";
+import { useSelector } from "react-redux";
 const Nav = () => {
-  const { currentUser, setCurrentUser } = useContext(userContext);
+  // const { currentUser, setCurrentUser } = useContext(userContext);
+  const currentUser = useSelector((state) => state.user.currentUser);
   const { isCartOpen } = useContext(cartContext);
   const signOutHandler = async () => {
     await signOutUser();
-    setCurrentUser(null);
   };
   return (
     <>
