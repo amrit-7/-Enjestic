@@ -3,19 +3,20 @@ import { Outlet, Link } from "react-router-dom";
 import CartIcon from "../cart-icon/cart-icon";
 import CartDropdown from "../cart-dropdown/cart-dropdown";
 import pic from "../../assets/enjestic.png";
-import { useContext } from "react";
+// import { useContext } from "react";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import { cartContext } from "../../context/cart.context";
+// import { cartContext } from "../../context/cart.context";
 import { useSelector } from "react-redux";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
+import { Fragment } from "react";
 const Nav = () => {
-  // const { currentUser, setCurrentUser } = useContext(userContext);
   const currentUser = useSelector((state) => state.user.currentUser);
-  const { isCartOpen } = useContext(cartContext);
+  const isCartOpen = useSelector(selectIsCartOpen);
   const signOutHandler = async () => {
     await signOutUser();
   };
   return (
-    <>
+    <Fragment>
       <div className="navigation">
         <Link to="/" className="logo-container">
           <div>
@@ -26,7 +27,11 @@ const Nav = () => {
           <Link className="navlink" to="/shop">
             Shop
           </Link>
-          <Link className="navlink" to="">
+          <Link
+            className="navlink"
+            to=""
+            style={{ color: "lightGray", cursor: "no-drop" }}
+          >
             Contact Us
           </Link>
           {currentUser ? (
@@ -43,7 +48,7 @@ const Nav = () => {
         {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
-    </>
+    </Fragment>
   );
 };
 export default Nav;
