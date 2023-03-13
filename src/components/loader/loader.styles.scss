@@ -1,122 +1,90 @@
 .loader {
-  width: 200px;
-  height: 50px;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
+  text-align: center;
+  margin-top: 150px;
+}
+.pl,
+.pl__worm {
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
 }
 
-.loader-text {
-  position: absolute;
-  top: 0;
-  padding: 0;
-  margin: 0;
-  color: #c8b6ff;
-  animation: text_713 3.5s ease both infinite;
-  font-size: 1.5rem;
-  letter-spacing: 1px;
+.pl {
+  animation-name: bump9;
+  animation-timing-function: linear;
+  width: 8em;
+  height: 8em;
 }
 
-.load {
-  background-color: #9a79ff;
-  border-radius: 50px;
-  display: block;
-  height: 26px;
-  width: 100px;
-  bottom: 0;
-  position: absolute;
-  transform: translateX(64px);
-  animation: loading_713 3.5s ease both infinite;
+.pl__ring {
+  stroke: hsla(var(--hue), 10%, 10%, 0.1);
+  transition: stroke 0.3s;
 }
 
-.load::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: #d1c2ff;
-  border-radius: inherit;
-  animation: loading2_713 3.5s ease both infinite;
+.pl__worm {
+  animation-name: worm9;
+  animation-timing-function: cubic-bezier(0.42, 0.17, 0.75, 0.83);
 }
 
-@keyframes text_713 {
-  0% {
-    letter-spacing: 1px;
-    transform: translateX(0px);
+/* Animations */
+@keyframes bump9 {
+  from,
+  42%,
+  46%,
+  51%,
+  55%,
+  59%,
+  63%,
+  67%,
+  71%,
+  74%,
+  78%,
+  81%,
+  85%,
+  88%,
+  92%,
+  to {
+    transform: translate(0, 0);
   }
 
-  40% {
-    letter-spacing: 2px;
-    transform: translateX(26px);
+  44% {
+    transform: translate(1.33%, 6.75%);
   }
 
-  80% {
-    letter-spacing: 1px;
-    transform: translateX(32px);
+  53% {
+    transform: translate(-16.67%, -0.54%);
+  }
+
+  61% {
+    transform: translate(3.66%, -2.46%);
+  }
+
+  69% {
+    transform: translate(-0.59%, 15.27%);
+  }
+
+  76% {
+    transform: translate(-1.92%, -4.68%);
+  }
+
+  83% {
+    transform: translate(9.38%, 0.96%);
   }
 
   90% {
-    letter-spacing: 2px;
-    transform: translateX(0px);
-  }
-
-  100% {
-    letter-spacing: 1px;
-    transform: translateX(0px);
+    transform: translate(-4.55%, 1.98%);
   }
 }
 
-@keyframes loading_713 {
-  0% {
-    width: 16px;
-    transform: translateX(0px);
+@keyframes worm9 {
+  from {
+    stroke-dashoffset: 10;
   }
 
-  40% {
-    width: 100%;
-    transform: translateX(0px);
+  25% {
+    stroke-dashoffset: 295;
   }
 
-  80% {
-    width: 16px;
-    transform: translateX(64px);
-  }
-
-  90% {
-    width: 100%;
-    transform: translateX(0px);
-  }
-
-  100% {
-    width: 16px;
-    transform: translateX(0px);
-  }
-}
-
-@keyframes loading2_713 {
-  0% {
-    transform: translateX(0px);
-    width: 16px;
-  }
-
-  40% {
-    transform: translateX(0%);
-    width: 80%;
-  }
-
-  80% {
-    width: 100%;
-    transform: translateX(0px);
-  }
-
-  90% {
-    width: 80%;
-    transform: translateX(15px);
-  }
-
-  100% {
-    transform: translateX(0px);
-    width: 16px;
+  to {
+    stroke-dashoffset: 1165;
   }
 }

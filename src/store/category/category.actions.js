@@ -1,5 +1,4 @@
 import { createAction } from "../../utils/action/action";
-import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 import { CATEGORIES_ACTION_TYPES } from "./category.types";
 
 export const fetchCategoriesSuccess = (categoriesArray) =>
@@ -15,6 +14,7 @@ export const fetchCategoriesFailed = (error) => {
   createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED, error);
 };
 //  THUNK FUNCTION
+/*
 export const fetchCategoriesThunk = () => async (dispatch) => {
   dispatch(fetchCategoriesStart());
   try {
@@ -24,3 +24,4 @@ export const fetchCategoriesThunk = () => async (dispatch) => {
     dispatch(fetchCategoriesFailed(error));
   }
 };
+*/
