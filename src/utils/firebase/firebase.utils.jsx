@@ -19,7 +19,6 @@ import {
   getDocs,
   collection,
   writeBatch,
-  DocumentSnapshot,
 } from "firebase/firestore";
 
 const firebaseConfig = {
