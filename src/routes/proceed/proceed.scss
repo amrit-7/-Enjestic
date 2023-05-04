@@ -1,0 +1,18 @@
+.proceedForm {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  .payment {
+    height: 40px;
+    width: 300px;
+    margin: 10px 5px 20px 10px;
+    border: 0.5px solid gray;
+    background-color: rgb(237, 237, 237);
+    padding-left: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 4px 10px rgb(76, 129, 142);
+  }
+  .order {
+    margin-top: 50px;
+  }
+}

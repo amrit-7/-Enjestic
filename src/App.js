@@ -11,6 +11,8 @@ import {
   onAuthStateChangedListener,
 } from "./utils/firebase/firebase.utils";
 import { setCurrentUser } from "./store/user/user.actions";
+import Proceed from "./routes/proceed/proceed";
+import Success from "./routes/success/success";
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -29,6 +31,8 @@ const App = () => {
         <Route path="/shop/*" element={<Shop />} />
         <Route path="/login" element={<Authentic />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/proceed" element={<Proceed />} />
+        <Route path="/success" element={<Success />} />
       </Route>
     </Routes>
   );

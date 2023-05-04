@@ -2,12 +2,9 @@ import { CART_ACTION_TYPES } from "./cart.types";
 import { createAction } from "../../utils/action/action";
 
 const addCartItem = (cartItems, productToAdd) => {
-  //finding if cart having productToAdd
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
   );
-
-  //adding to existing product
   if (existingCartItem) {
     return cartItems.map((cartItem) =>
       cartItem.id === productToAdd.id
@@ -15,8 +12,6 @@ const addCartItem = (cartItems, productToAdd) => {
         : cartItem
     );
   }
-
-  //return new array if product to add is a new item to cart...
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 const removeCartItem = (cartItems, productToRemove) => {
@@ -38,6 +33,9 @@ const removeCartItem = (cartItems, productToRemove) => {
 const deleteCartItem = (cartItems, productToDelete) =>
   cartItems.filter((cartItem) => cartItem.id !== productToDelete.id);
 
+const resetTagItem = (tagItems) => {
+  return (tagItems = []);
+};
 export const setIsCartOpen = (boolean) =>
   createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, boolean);
 
@@ -51,5 +49,9 @@ export const removeItemToCart = (cartItems, productToRemove) => {
 };
 export const deleteItemToCart = (cartItems, productToDelete) => {
   const newCartItems = deleteCartItem(cartItems, productToDelete);
+  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
+};
+const resetTagItems = (tagItems) => {
+  const newCartItems = resetTagItem(tagItems);
   return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };
